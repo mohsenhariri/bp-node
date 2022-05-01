@@ -1,0 +1,156 @@
+# https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+@protocol = http
+@host = 127.0.0.1
+@port = 4000
+@url =  {{protocol}}://{{host}}:{{port}}
+GET {{url}} HTTP/1.1
+###
+GET {{url}}/admin/users/count HTTP/1.1
+###
+GET {{url}}/admin/users?offset=5&limit=10 HTTP/1.1
+###
+GET {{url}}/helper/generateuser HTTP/1.1
+###
+GET {{url}}/admin/users/search?q=09126715297 HTTP/1.1
+
+
+###
+GET {{url}}/test/email?email=m.hariri@sharif.edu HTTP/1.1
+###
+
+
+
+curl {{url}}
+
+###
+UPLOADER
+###
+POST {{url}}/uploader/image/create HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWQiOjE1MTYyMzkwMjJ9.SY8ZnIQYs_QunOVo9ewamwo-FkSvUygtuZnph6WIXa8
+Content-Type: multipart/form-data; boundary=boundary
+
+
+--boundary
+Content-Disposition: form-data; name="title";
+
+sample title
+--boundary
+Content-Disposition: form-data; name="alt";
+
+sample caption
+--boundary
+Content-Disposition: form-data; name="caption";
+
+sample caption
+--boundary
+Content-Disposition: form-data; name="description";
+
+sample description
+--boundary
+Content-Disposition: form-data; filename="new.png"; 
+Content-Type: image/jpeg
+
+< ./p.jpg
+--boundary--
+### 
+POST {{url}}/uploader/image/delete HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWQiOjE1MTYyMzkwMjJ9.SY8ZnIQYs_QunOVo9ewamwo-FkSvUygtuZnph6WIXa8
+Content-Type: application/json
+
+{
+    "imageId": "607948706cf830567a83852c"
+}
+###
+POST {{url}}/uploader/image/details HTTP/1.1
+Content-Type: application/json
+
+{
+    "imageId": "6079d84f2c02d34ee910f164"
+}
+###
+POST {{url}}/uploader/image/update HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWQiOjE1MTYyMzkwMjJ9.SY8ZnIQYs_QunOVo9ewamwo-FkSvUygtuZnph6WIXa8
+Content-Type: multipart/form-data; boundary=boundary
+
+
+--boundary
+Content-Disposition: form-data; name="imageId";
+
+6079d84f2c02d34ee910f164
+--boundary
+Content-Disposition: form-data; name="title";
+
+sample title
+--boundary
+Content-Disposition: form-data; name="alt";
+
+sample caption
+--boundary
+Content-Disposition: form-data; name="caption";
+
+sample caption
+--boundary
+Content-Disposition: form-data; name="description";
+
+sample description
+--boundary
+Content-Disposition: form-data; filename="new.png"; 
+Content-Type: image/jpeg
+
+< ./p.jpg
+--boundary--
+### 
+GET {{url}}/uploader/images?offset=2&limit=10 HTTP/1.1
+### 
+GET {{url}}/uploader/image/read?name=dsad HTTP/1.1
+
+###
+EDITOR
+####
+POST {{url}}/page/create HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWQiOjE1MTYyMzkwMjJ9.SY8ZnIQYs_QunOVo9ewamwo-FkSvUygtuZnph6WIXa8
+Content-Type: application/json
+
+
+{ 
+    "title":"",
+    "body":"test body",
+    "isPublished":true,
+    "photo":"",
+    "url":"/home"
+}
+###
+GET {{url}}/page/all HTTP/1.1
+####
+POST {{url}}/page/delete HTTP/1.1
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWQiOjE1MTYyMzkwMjJ9.SY8ZnIQYs_QunOVo9ewamwo-FkSvUygtuZnph6WIXa8
+Content-Type: application/json
+
+
+{ 
+    "pageId":"607d4ae681d5b2099c93df42"
+}
+####
+POST {{url}}/page/read HTTP/1.1
+# x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWQiOjE1MTYyMzkwMjJ9.SY8ZnIQYs_QunOVo9ewamwo-FkSvUygtuZnph6WIXa8
+Content-Type: application/json
+
+
+{ 
+    "pageId":"607d4bd36733fafc5795ef14"
+}
+###
+POST {{url}}/page/update HTTP/1.1
+# x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWQiOjE1MTYyMzkwMjJ9.SY8ZnIQYs_QunOVo9ewamwo-FkSvUygtuZnph6WIXa8
+Content-Type: application/json
+
+
+{ 
+    "pageId":"607d4bd36733fafc5795ef14",
+    "title":"edited title",
+    "body":"edited test body",
+    "isPublished":false,
+    "photo":"",
+    "url":"/home2"
+}
+###
