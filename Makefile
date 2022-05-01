@@ -1,5 +1,5 @@
 PATH := ./node_modules/.bin:$(PATH)
-.PHONY: all dev clean dev manifest server
+.PHONY: all dev clean dev manifest server config
 include .env.dev
 include .env.prod
 export
@@ -19,6 +19,12 @@ cert:
 		openssl req -x509 -new -config ./certs/openssl.conf -out ./certs/cert.pem -keyout ./certs/key.pem ;  else \
 		openssl req -x509 -nodes -newkey rsa:4096 -out ./certs/cert.pem -keyout ./certs/key.pem -sha256 -days 365 ;fi
 
+
+config-docker-up:
+		docker compose -p $(PROJECT) -f ./config/compose.yaml up -d
+
+config-docker-down:
+		docker compose -p $(PROJECT) -f ./config/compose.yaml down
 
 clean:
 		rm -rf $(DIST)/*

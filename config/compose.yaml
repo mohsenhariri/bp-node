@@ -1,0 +1,36 @@
+# https://github.com/compose-spec/compose-spec/blob/master/spec.md
+
+###################
+# services
+# MongoDB
+###################
+
+services:
+  db-mongo:
+    container_name: mongo-bp
+    image: mongo
+    volumes:
+      - ./volumes/mongo:/data/db
+    networks:
+      - net-bp
+    ports:
+      - 27027:27017
+    restart: on-failure # always
+
+  db-redis:
+    container_name: redis-bp
+    image: redis
+    networks:
+      - net-bp
+    ports:
+      - 7963:6379
+    restart: on-failure
+
+###################
+# networks
+# net-bp
+###################
+networks:
+  net-bp:
+    # network name
+    driver: bridge
