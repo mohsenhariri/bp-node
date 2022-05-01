@@ -1,7 +1,13 @@
 import {userCollection} from '../../../init/mongo.config.js'
 
+import client from '../../../init/redis.config.js'
+
+
 const testSignUp = async (req, res) => {
   try {
+
+    const resultredis = await client.HSET('key', 'field', 'value');
+
     const user = {name: 'Mohsen', email: 'mhariri68@gmail.com'}
 
     const result = await userCollection.insertOne(user)
@@ -13,7 +19,7 @@ const testSignUp = async (req, res) => {
 
     res.json(users)
   } catch (err) {
-    console.log('error in sign up')
+    console.log('error in sign up',err)
   }
 }
 

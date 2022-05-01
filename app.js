@@ -1,12 +1,11 @@
 'use strict'
 console.log(`************* ${process.env.NODE_ENV} ****************`)
 import expressApp from './init/express.config.js'
-import {port, host, protocol, version, mongoURL} from './init/const.js'
+import {port, host, protocol, version} from './init/const.js'
 import {handleErr} from './lib/errorHandler.js'
 
-console.log('mohsen', mongoURL)
-
 import router from './router.js'
+
 ;(async () => {
   try {
     const app = expressApp()
