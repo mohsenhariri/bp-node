@@ -1,0 +1,5 @@
+{
+  "ext": "js, yml",
+  "ignore": ["src/**/*", "./.next", "./node_modules"],
+  "exec": "node --experimental-json-modules ./app.js"
+}
