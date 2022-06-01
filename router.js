@@ -1,8 +1,8 @@
 import {handleErr} from './lib/errorHandler.js'
 import root from './controller/root.js'
 
-import testRedis from './controller/test/redis.js'
-import testMongo from './controller/test/mongo.js'
+import testRedis from './controller/connection/redis.js'
+import testMongo from './controller/connection/mongo.js'
 
 const router = (app) => {
   try {

@@ -1,34 +1,35 @@
 {
-  "name": "bp-node",
+  "name": "template-node",
   "version": "1.0.0",
   "main": "app.js",
   "type": "module",
   "license": "GPLV3",
-  "description": "",
+  "description": "Node.js template w/ MongoBD and Redis 🐉✨💥🐅",
   "keywords": [],
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mohsenhariri/bp-node.git"
+    "url": "git+https://github.com/mohsenhariri/template-node.git"
   },
   "author": "Mohsen Hariri <mhariri68@gmail.com>",
   "bugs": {
-    "url": "https://github.com/mohsenhariri/bp-node/issues"
+    "url": "https://github.com/mohsenhariri/template-node/issues"
   },
-  "homepage": "https://github.com/mohsenhariri/bp-node#readme",
+  "homepage": "https://github.com/mohsenhariri/template-node#readme",
   "devDependencies": {
     "nodemon": "^2.0.16"
   },
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.18.1",
-    "helmet": "^5.0.2",
-    "mongodb": "^4.5.0",
-    "redis": "^4.0.6"
+    "helmet": "^5.1.0",
+    "mongodb": "^4.6.0",
+    "redis": "^4.1.0"
   }
 }
