@@ -36,8 +36,15 @@ dev:
 		nodemon
 
 
-test:
+test-pach:
 		echo $(PATH)
+
+install-dep-prod:
+		npm ci
 
 format:
 		prettier --write .
+
+test-node:
+		node --test
+

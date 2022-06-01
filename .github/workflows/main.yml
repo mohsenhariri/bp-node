@@ -1,0 +1,37 @@
+# https://github.com/actions/checkout
+# https://github.com/actions/setup-node
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16, 18]
+
+    name: Node ${{ matrix.node }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: install dependencies
+        run: make install-dep-prod
+
+      - name: format
+        run: make format
+
+      - name: test
+        run: make test-node
