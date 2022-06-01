@@ -38,3 +38,6 @@ dev:
 
 test:
 		echo $(PATH)
+
+format:
+		prettier --write .

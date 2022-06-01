@@ -5,7 +5,6 @@ import {port, host, protocol, version} from './init/const.js'
 import {handleErr} from './lib/errorHandler.js'
 
 import router from './router.js'
-
 ;(async () => {
   try {
     const app = expressApp()

@@ -4,9 +4,8 @@ semi: false
 singleQuote: true
 arrowParens: 'always'
 # arrowParens: 'avoid'
-printWidt: 80
+printWidth: 80
 singleAttributePerLine: true
-jsxSingleQuote: true
-jsxBracketSameLine: true
+bracketSameLine: true
 bracketSpacing: false
 quoteProps: 'consistent'

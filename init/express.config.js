@@ -8,7 +8,7 @@ const expressApp = () => {
   app.use(helmet())
   app.use(compression())
   app.use(express.json())
-  app.use(express.urlencoded({ extended: false }))
+  app.use(express.urlencoded({extended: false}))
   app.use('/static', express.static('uploads'))
   app.use((_, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', process.env.origin)
@@ -18,7 +18,7 @@ const expressApp = () => {
       'Content-Type, x-auth-token, x-powered-by'
     )
     // res.header('Access-Control-Expose-Headers', 'x-auth-token')
-    res.header('x-powered-by', 'kashk.js') // I love this silly name :) 
+    res.header('x-powered-by', 'kashk.js') // I love this silly name :)
     next()
   })
   return app
