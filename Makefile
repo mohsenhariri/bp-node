@@ -22,11 +22,14 @@ cert:
 
 
 config-docker-up:
-		docker compose -p $(PROJECT) -f ./config/compose.yaml up -d
+		docker compose -p $(PROJECT) --env-file ./config/.env.docker -f ./config/compose.yaml up -d
 
 config-docker-down:
 		docker compose -p $(PROJECT) -f ./config/compose.yaml down
 
+config-docker-build:
+		docker build -t mh/template-node:2.0.0 .
+		
 clean:
 		rm -rf $(DIST)/*
 
