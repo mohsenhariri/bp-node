@@ -1,7 +1,8 @@
+# https://www.gnu.org/software/make/manual/make.html
 PATH := ./node_modules/.bin:$(PATH)
 .PHONY: all dev clean dev manifest server config
+
 include .env.dev
-include .env.prod
 export
 
 
@@ -48,3 +49,12 @@ format:
 test-node:
 		node --test
 
+g-commit: format type pylint
+		git commit -m "$(filter-out $@,$(MAKECMDGOALS))"
+
+g-log:
+		git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+
+%: # https://www.gnu.org/software/make/manual/make.html#Automatic-Variables 
+		@:
